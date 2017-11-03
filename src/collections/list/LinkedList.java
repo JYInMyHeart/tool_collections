@@ -5,6 +5,10 @@ package collections.list;
  * @time 2017/11/3.
  */
 public class LinkedList<T extends Comparable> implements List<T>{
+
+    private class Node{
+
+    }
     @Override public boolean add (T t) {
         return false;
     }
