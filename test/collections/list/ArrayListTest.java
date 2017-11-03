@@ -1,8 +1,6 @@
 package collections.list;
 
 
-import collections.List.ArrayList;
-import collections.List.List;
 import org.junit.Assert;
 import org.junit.Test;
 

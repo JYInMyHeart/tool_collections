@@ -1,4 +1,4 @@
-package collections.List;
+package collections.list;
 
 /**
  * @author root

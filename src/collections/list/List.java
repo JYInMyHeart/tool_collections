@@ -1,6 +1,4 @@
-package collections.List;
-
-import java.util.Comparator;
+package collections.list;
 
 /**
  * @author root
