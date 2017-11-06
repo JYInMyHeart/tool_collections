@@ -39,8 +39,7 @@ public class ArrayList<T extends Comparable> implements List<T>{
         }
         return false;
     }
-
-    @Override public boolean remove (int index) {
+    public boolean remove (int index) {
         if(pos <= ((list.length + 1) >> 1))
             resize (list.length >> 1);
         if(index > pos || index < 0)
@@ -56,7 +55,7 @@ public class ArrayList<T extends Comparable> implements List<T>{
         return remove (pos);
     }
 
-    @Override public Object[] resize (int newSize) {
+    public Object[] resize (int newSize) {
         Object[] newList = new Object[newSize];
         for (int i = 0; i < pos; i++) {
             newList[i] = list[i];
@@ -75,7 +74,7 @@ public class ArrayList<T extends Comparable> implements List<T>{
         return (T)list[index];
     }
 
-    @Override public boolean set (int index, T t) {
+    public boolean set (int index, T t) {
         return false;
     }
 
