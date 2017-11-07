@@ -1,5 +1,7 @@
 package collections.list;
 
+import org.junit.Assert;
+
 /**
  * @author root
  * @time 2017/11/3.
@@ -32,8 +34,8 @@ public class ArrayList<T extends Comparable> implements List<T>{
             if(list[i].equals (t)){
                 for (int j = i + 1; j < pos; j++) {
                     list[j - 1] = list[j];
-                    pos--;
                 }
+                pos--;
                 return true;
             }
         }
@@ -75,7 +77,25 @@ public class ArrayList<T extends Comparable> implements List<T>{
     }
 
     public boolean set (int index, T t) {
+        Assert.assertNotNull (list);
+        for (int i = 0; i < pos; i++) {
+            if(i == index){
+                list[i] = t;
+                return true;
+            }
+        }
         return false;
+    }
+
+    @Override public String toString () {
+        StringBuilder stringBuilder = new StringBuilder ();
+        stringBuilder.append ("[");
+        for (int i = 0; i < pos ; i++) {
+            stringBuilder.append (list[i] + ",");
+        }
+        stringBuilder.deleteCharAt (stringBuilder.length () - 1);
+        stringBuilder.append ("]");
+        return stringBuilder.toString ();
     }
 
 }

@@ -38,7 +38,7 @@ public class LinkedList<T extends Comparable> implements List<T>{
     @Override public boolean remove (T t) {
         if(head.val.equals (t)){
             head = head.right;
-            //head.left = null;
+            if(head != null) head.left = null;
             return true;
         }
         if(t.equals (list.val)){
@@ -73,21 +73,24 @@ public class LinkedList<T extends Comparable> implements List<T>{
     }
 
     @Override public T get (int index) {
+        if(list == null) return null;
+        int c = 0;
+        for (Node i = head; i != null; i = i.right) {
+            if(c == index)
+                return i.val;
+            c++;
+        }
         return null;
     }
 
-
-    public static void main (String[] args) {
-        List<Integer> list1 = new LinkedList<> ();
-
-        list1.add (1);
-
-
-
-
-        list1.remove (1);
-
-
-
+    @Override public String toString () {
+        StringBuilder stringBuilder = new StringBuilder ();
+        stringBuilder.append ("[");
+        for (Node i = head; i != null ; i = i.right) {
+            stringBuilder.append (i.val + ",");
+        }
+        stringBuilder.deleteCharAt (stringBuilder.length () - 1);
+        stringBuilder.append ("]");
+        return stringBuilder.toString ();
     }
 }
