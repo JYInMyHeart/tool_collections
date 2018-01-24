@@ -5,12 +5,12 @@ package collections.list;
  * @time 2017/11/3.
  */
 public class LinkedList<T extends Comparable> implements List<T>{
-    private Node list;
+    private Node tail;
     private Node head;
 
     public LinkedList () {
-        this.list = null;
-        this.head = list;
+        this.tail = null;
+        this.head = tail;
     }
 
     private class Node{
@@ -24,14 +24,14 @@ public class LinkedList<T extends Comparable> implements List<T>{
     }
     @Override public boolean add (T t) {
         Node node = new Node (t);
-        if(list == null){
-            list = node;
-            head = list;
+        if(tail == null){
+            tail = node;
+            head = tail;
             return true;
         }
-        list.right = node;
-        node.left = list;
-        list = list.right;
+        tail.right = node;
+        node.left = tail;
+        tail = tail.right;
         return true;
     }
 
@@ -41,9 +41,9 @@ public class LinkedList<T extends Comparable> implements List<T>{
             if(head != null) head.left = null;
             return true;
         }
-        if(t.equals (list.val)){
-            list = list.left;
-            list.right = null;
+        if(t.equals (tail.val)){
+            tail = tail.left;
+            tail.right = null;
             return true;
         }
         for (Node i = head; i != null ; i = i.right) {
@@ -73,7 +73,7 @@ public class LinkedList<T extends Comparable> implements List<T>{
     }
 
     @Override public T get (int index) {
-        if(list == null) return null;
+        if(tail == null) return null;
         int c = 0;
         for (Node i = head; i != null; i = i.right) {
             if(c == index)
